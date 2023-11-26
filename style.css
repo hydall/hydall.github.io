@@ -3,16 +3,20 @@
     src: url(beaufortforlol-bold.otf);
   }
   body {
+    background-color: #01070e;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: baseline;
     align-items: center;
     height: 100vh;
     background-image: url(bg.png);
     background-size: cover;
     color: #ffffff; /* Light text color */
+    animation: fadeInAnimation ease 1s;
+    animation-fill-mode: forwards;
 }
 
 h1 {
@@ -42,19 +46,36 @@ input, button {
     margin: 5px;
     width: 100%;
     transition: 0.2s;
+    position: relative;
 }
 
-button:hover {
+#button:hover {
     color: #e9e6d2;
     border: 2px solid #8de8e1;
     background-image: linear-gradient(#1b2931 0%, #133748 100%);
 }
 
+  /* Разделитель секций */
+  .player-divider{
+    border: 0.5px solid #434741a8;
+    width: 100%;
+  }
+
 .teamplayers {
     white-space: pre-line;
     color: #7f9b8c;
+    display: none;
+    opacity: 0;
+    transition:
+    opacity 0.15s,
+    display 0.15s;
 }
-
+.teamname {
+    margin-bottom: 10px;
+    transition:
+    opacity 0.15s,
+    display 0.15s;
+}
 #redside{
     color: #ff2345;
     text-align: right;
@@ -65,11 +86,32 @@ button:hover {
     text-align: left;
 }
 
-#teams {
-    display: none;
+
+
+.teams {
+    display: flex;
+    position: relative;
     justify-content: space-between;
     width: 100%;
 }
+
+#tooltip {
+    text-align: left;
+    visibility: hidden;
+    transition: visibility 0.3s,
+    opacity 0.3s;
+    opacity: 0;
+    width: 600px; 
+    background-color: #010a13;
+    color: #928f82;
+    /* Position the tooltip */
+    position: absolute;
+    padding: 10px;
+    left: 0;
+    bottom: -200%;
+    z-index: 1;
+    border: 1px solid #775a28;
+  }
 #team1, #team2 {
     display: flex;
     flex-direction: column;
@@ -80,12 +122,19 @@ button:hover {
 #team1players{
     text-align: left;
 }
+
 #team2players{
     text-align: right;
 }
 
+.teamname {
+    display: none;
+    opacity: 0;
+}
+
 textarea {
     outline: none;
+    position: static;
     background-color: #060f19;
     width: 100%; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
@@ -102,3 +151,40 @@ textarea:focus {
     background: linear-gradient(#060f19, #161e25);  
 }
 
+.showing {
+    opacity: 1;
+    display: inline;
+  }
+  
+  @starting-style {
+    .showing {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
