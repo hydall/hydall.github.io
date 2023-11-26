@@ -1,0 +1,104 @@
+@font-face {
+    font-family: Beaufort;
+    src: url(beaufortforlol-bold.otf);
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(bg.png);
+    background-size: cover;
+    color: #ffffff; /* Light text color */
+}
+
+h1 {
+    color: #cdbe91;
+      font-family: Beaufort;
+}
+#container {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    color: #939b82; /* Light text color for input and button */
+    border: none;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+input, button {
+    background-color: #1b2931; /* Dark input background color */
+    color: #a3c7c7; /* Light text color for input and button */
+    border: 2px solid #0596aa;
+    padding: 8px;
+    margin: 5px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+button:hover {
+    color: #e9e6d2;
+    border: 2px solid #8de8e1;
+    background-image: linear-gradient(#1b2931 0%, #133748 100%);
+}
+
+.teamplayers {
+    white-space: pre-line;
+    color: #7f9b8c;
+}
+
+#redside{
+    color: #ff2345;
+    text-align: right;
+}
+
+#blueside{
+    color: #09bdd6;
+    text-align: left;
+}
+
+#teams {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
+}
+#team1, #team2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-weight: bold;
+    width: 40%;
+}
+#team1players{
+    text-align: left;
+}
+#team2players{
+    text-align: right;
+}
+
+textarea {
+    outline: none;
+    background-color: #060f19;
+    width: 100%; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    color: #e5dbc9; /* Light text color for input and button */
+    padding: 8px;
+    margin: 5px;
+    resize: none; /* Disable textarea resizing */
+    transition: 0.2s; /* Add a transition for smooth color change */
+    border-image: linear-gradient(#9f9a8b, #3d3d42) 1;    
+}
+
+textarea:focus {
+    border-image: linear-gradient(#c7a96d, #7a5c29) 1;
+    background: linear-gradient(#060f19, #161e25);  
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends Customs Shuffler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>LEAGUE OF LEGENDS CUSTOMS SHUFFLER</h1>
+        <label for="players">Enter players (separated by Enter): </label>
+        <textarea id="players" value="Player1&#10;Player2&#10;Player3&#10;and so on..." placeholder="Player1&#10;Player2&#10;Player3&#10;and so on..."></textarea>
+        <button onclick="shuffleTeams()">Shuffle Teams</button>
+        <div id="teams">
+            <div id="team1">
+                <div class="teamname" id="blueside">Blue Side</div>
+                <div class="teamplayers" id="team1players"></div>
+            </div>
+            <div id="team2">
+                <div class="teamname" id="redside">Red Side</div>
+                <div class="teamplayers" id="team2players"></div>
+            </div>
+        </div>
+
+
+        <script src="script.js">
+        </script>
+    </div>
+</body>
+</html>
