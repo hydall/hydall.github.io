@@ -2,9 +2,24 @@
     font-family: Beaufort;
     src: url(beaufortforlol-bold.otf);
   }
+
+  @font-face {
+    font-family: SpiegelBold;
+    src: url(Spiegel-Bold.otf);
+  }
+
+  @font-face {
+    font-family: Spiegel;
+    src: url(Spiegel-Regular.otf);
+  }
+
+  @font-face {
+    font-family: BeaufortMedium;
+    src: url(BeaufortforLOL-Medium.ttf);
+  }
   body {
     background-color: #01070e;
-    font-family: Arial, sans-serif;
+    font-family: Spiegel;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,16 +33,119 @@
     animation: fadeInAnimation ease 1s;
     animation-fill-mode: forwards;
 }
+a{
+  color: #c1b38a;
+  transition: 0.15s;
+}
+a:hover {
+  color: #efe5d1;
+}
+header{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+}
+
+.subheader{
+display: flex;
+justify-content: space-between;
+margin-top: 10px;
+margin-left: 100px;
+margin-right: 100px;
+align-items: center;
+}
+
+.butver {
+  display: flex;
+  align-items: center;
+}
+
+.butverchild {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.lolbutton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e2328; /* Button background color */
+  color: #cdbe91; /* Button text color */
+    border: 1px solid transparent;
+    border-image: linear-gradient(#c3a464, #6b5028) 1;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 35px;
+  padding: 3px;
+}
+
+.lolbutton:hover {
+  background-color: #2a3540; /* Button background color on hover */
+  border-image: linear-gradient(#fff868, #b3761c) 1;
+  color: #ffffc8;
+}
+.version{
+  color: #3c3c41;
+  background-color: #010b14;
+  padding: 5px;
+  z-index: 1;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.7;
+  transition: 0.15s;
+}
+
+.lolbutton:hover .icon { 
+  opacity: 1;
+} 
+
+
+
+footer{
+  color: #928e81;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  bottom: 0;
+  margin: 20px;
+}
+
+.mode-changer{
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mode {
+  font-family: SpiegelBold;
+  color: #a7be91;
+  transition: 0.3s;
+}
+
+.mode:hover{
+  color: #f0e6d2;
+}
 
 h1 {
     color: #cdbe91;
       font-family: Beaufort;
+}
+h2 {
+  color: #f0e6d2;
+  font-size: 21px;
+  font-family: BeaufortMedium;
 }
 #container {
     text-align: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 label{
@@ -59,6 +177,12 @@ input, button {
   .player-divider{
     border: 0.5px solid #434741a8;
     width: 100%;
+  }
+
+  .header-divider{
+    border: 0.5px solid #434741a8;
+    width: 100%;
+    margin: 0px;
   }
 
 .teamplayers {
@@ -130,6 +254,17 @@ input, button {
 .teamname {
     display: none;
     opacity: 0;
+}
+.headerup {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 0 100px;
+}
+.cr {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 textarea {

@@ -7,8 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="headerup">
+        <div class="headername">
+            <h1>LOLCustoms</h1>
+            <h2>An advanced League of Legends Custom Shuffler</h2></div>
+            <div class="butver">
+                <a class="lolbutton butverchild" href="https://discord.gg/BK7FBQ2q9g"><img id="discord" class="icon" src="discordhover.webp"></a>
+                <a class="lolbutton butverchild" href="https://github.com/hydall/lolcustoms"><img id="github" class="icon" src="github.png"></a>
+                <span class="version butverchild">V0.01</span>
+            </div>
+        </div>
+        <hr class="header-divider">
+        <div class="subheader">
+        <div class="mode-changer">
+            <span class="mode">QUICK CUSTOM</span>
+            <span class="mode">RANKED CUSTOM</span>
+            <span class="mode">ULTIMATE BRAVERY</span>
+        </div>
+    </div>
+    </header>
     <div id="container">
-        <h1>LEAGUE OF LEGENDS CUSTOMS SHUFFLER</h1>
+        
         <label for="players">Enter players (separated by Enter): </label>
         <textarea id="players" value="Player1&#10;Player2&#10;Player3&#10;and so on..." placeholder="Player1&#10;Player2&#10;Player3&#10;and so on..."></textarea>
         <button id="button" onclick="shuffleTeams()">Shuffle Teams<span id="tooltip">•    Too few players - at least three players required</span></button>
@@ -27,6 +47,11 @@
                 </div>
             </div>
     </div>
-
+    <footer>
+        <hr class="header-divider">
+        <div class="cr">LOLCustoms isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends<br>© Riot Games, Inc.</div>
+        <br>
+        made by <a href="https://github.com/hydall">hydall</a>
+    </footer>
 </body>
 </html>
