@@ -12,7 +12,7 @@ function shuffleTeams(event){
     var team2Div = document.getElementById('team2players');
     var inputt = document.getElementById('inputt');
     var elements1 = document.querySelectorAll('.teamplayers');
-    inputt.style.display = "none";
+    
 
     // Get the list of players from the input
     var players = playersInput.value.split('\n').map(player => player.trim());
@@ -21,9 +21,9 @@ function shuffleTeams(event){
         if(players[i]=="") players.splice(i, 1);
     }
     // Show tooltip depending on amount of inputed players
-    if(players.length < 2) showTooltip("•    Too few players - at least three players required");
-    else if(players.length > 10) showTooltip("•    Too many players - can't shuffle more than 10 players");
-
+    if(players.length < 2){ showTooltip("•    Too few players - at least three players required"); return; }
+    else if(players.length > 10) { showTooltip("•    Too many players - can't shuffle more than 10 players"); return;}
+    inputt.style.display = "none";
     // Shuffle the players
     players = shuffleArray(players);
     if(firstCall == false) {
