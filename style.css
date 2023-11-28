@@ -1,70 +1,246 @@
 @font-face {
     font-family: Beaufort;
-    src: url(beaufortforlol-bold.otf);
+    src: url(fonts/beaufortforlol-bold.otf);
   }
-  body {
-    background-color: #01070e;
-    font-family: Arial, sans-serif;
+
+  @font-face {
+    font-family: SpiegelBold;
+    src: url(fonts/Spiegel-Bold.otf);
+  }
+
+  @font-face {
+    font-family: Spiegel;
+    src: url(fonts/Spiegel-Regular.otf);
+  }
+
+  @font-face {
+    font-family: BeaufortMedium;
+    src: url(fonts/BeaufortforLOL-Medium.ttf);
+  }
+
+/* General styling */
+
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  font-family: Spiegel;
+  background-color: #01070e;
+  color: #939b82; /* Light text color */
+
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     align-items: center;
-    height: 100vh;
-    background-image: url(bg.png);
+    height: 100svh;
+    background-image: url(images/art/bg.png);
     background-size: cover;
-    color: #ffffff; /* Light text color */
     animation: fadeInAnimation ease 1s;
     animation-fill-mode: forwards;
 }
 
-h1 {
-    color: #cdbe91;
-      font-family: Beaufort;
+/* Tags redefinition */
+a{
+  color: #c1b38a;
+  transition: 0.15s;
 }
-#container {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+a:hover {
+  color: #efe5d1;
 }
 
-label{
-    color: #939b82; /* Light text color for input and button */
-    border: none;
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
+label{ /* Light text color for input and button */
+  border: none;
+  padding: 8px;
+  margin: 5px;
 }
 
-input, button {
-    background-color: #1b2931; /* Dark input background color */
-    color: #a3c7c7; /* Light text color for input and button */
-    border: 2px solid #0596aa;
-    padding: 8px;
-    margin: 5px;
-    width: 100%;
-    transition: 0.2s;
-    position: relative;
+button {
+  background-color: #1b2931; /* Dark input background color */
+  color: #a3c7c7; /* Light text color for input and button */
+  border: 2px solid #0596aa;
+  padding: 8px;
+  margin: 5px;
+  transition: 0.2s;
+  position: relative;
 }
 
 #button:hover {
-    color: #e9e6d2;
-    border: 2px solid #8de8e1;
-    background-image: linear-gradient(#1b2931 0%, #133748 100%);
+  color: #e9e6d2;
+  border: 2px solid #8de8e1;
+  background-image: linear-gradient(#1b2931 0%, #133748 100%);
 }
 
-  /* Разделитель секций */
-  .player-divider{
+  /* Dividers */
+  .divider{
     border: 0.5px solid #434741a8;
     width: 100%;
   }
 
+/* Sections */
+
+header{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.headerup {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 20px 100px;
+}
+
+/* Site name in the header */
+
+#name {
+  color: #cdbe91;
+  font-family: Beaufort;
+}
+#desc {
+  color: #f0e6d2;
+  font-size: 21px;
+  font-family: BeaufortMedium;
+}
+
+/* Modes navigation menu */
+
+.navmenu{
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  position: relative;
+}
+
+.navmenu > *{
+  margin-right: 30px;
+}
+
+.mode-container{
+    position: relative;
+    display: inline;
+}
+
+.mode {
+  font-family: SpiegelBold;
+  color: #a7be91;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.mode:hover{
+  color: #f0e6d2;
+}
+
+/* Highlight the mode when hovered */
+
+.highlighter {
+  background-image: url('images/dividerline.png');
+  background-size: contain; /* This property makes the image cover the entire container */
+  background-position: center;  /*Center the image within the container */
+  background-repeat: no-repeat;  /*Prevent the image from repeating */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease;
+}
+
+.mode:hover + .highlighter,
+.highlighter:hover {
+  width: 100%;
+}
+
+/* Buttons and version */
+
+.butver {
+  display: flex;
+  align-items: center;
+}
+
+.butver > *{
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.lolbutton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e2328; /* Button background color */
+  color: #cdbe91; /* Button text color */
+  border: 1px solid transparent;
+  border-image: linear-gradient(#c3a464, #6b5028) 1;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 35px;
+  padding: 3px;
+}
+
+.lolbutton:hover {
+  background-color: #2a3540; /* Button background color on hover */
+  border-image: linear-gradient(#fff868, #b3761c) 1;
+  color: #ffffc8;
+}
+
+.version{
+  color: #3c3c41;
+  background-color: #010b14;
+  padding: 5px;
+  z-index: 1;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.7;
+  transition: 0.15s;
+}
+
+.lolbutton:hover .icon { 
+  opacity: 1;
+} 
+
+/* Shuffler window */
+
+.input-players {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+#container {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 50%;
+}
+
+.teamscontainer{
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  width: 100%;
+  transition:
+  opacity 0.15s,
+  display 0.15s;
+}
+
 .teamplayers {
     white-space: pre-line;
     color: #7f9b8c;
-    display: none;
     opacity: 0;
     transition:
     opacity 0.15s,
@@ -75,7 +251,7 @@ input, button {
     transition:
     opacity 0.15s,
     display 0.15s;
-}
+  }
 #redside{
     color: #ff2345;
     text-align: right;
@@ -87,28 +263,27 @@ input, button {
 }
 
 
-
 .teams {
     display: flex;
     position: relative;
     justify-content: space-between;
     width: 100%;
 }
-
+.buttonswrapper{
+  margin-top: 20px;
+}
 #tooltip {
     text-align: left;
     visibility: hidden;
     transition: visibility 0.3s,
     opacity 0.3s;
     opacity: 0;
-    width: 600px; 
+    padding: 10px;
     background-color: #010a13;
     color: #928f82;
     /* Position the tooltip */
     position: absolute;
-    padding: 10px;
-    left: 0;
-    bottom: -200%;
+
     z-index: 1;
     border: 1px solid #775a28;
   }
@@ -127,9 +302,11 @@ input, button {
     text-align: right;
 }
 
-.teamname {
-    display: none;
-    opacity: 0;
+
+.cr {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 textarea {
@@ -153,9 +330,20 @@ textarea:focus {
 
 .showing {
     opacity: 1;
+  }
+  .showingdisplay {
+    opacity: 1;
     display: inline;
   }
   
+  footer{
+    color: #928e81;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    margin: 20px;
+  }
+
   @starting-style {
     .showing {
       opacity: 0;
