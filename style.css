@@ -334,6 +334,18 @@ textarea:focus {
     background: linear-gradient(#060f19, #161e25);  
 }
 
+textarea::-webkit-scrollbar {
+    width: 2px; /* Adjust the width as needed */
+
+  }
+
+  textarea::-webkit-scrollbar-thumb {
+    background: linear-gradient(#c7a96d, #7a5c29); 
+    border-radius: 5px;
+  }
+
+
+
 .showing {
     opacity: 1;
   }
