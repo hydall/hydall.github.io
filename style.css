@@ -1,52 +1,57 @@
 @font-face {
-    font-family: Beaufort;
-    src: url(fonts/beaufortforlol-bold.otf);
-  }
+  font-family: Beaufort;
+  src: url(fonts/beaufortforlol-bold.otf);
+}
 
-  @font-face {
-    font-family: SpiegelBold;
-    src: url(fonts/Spiegel-Bold.otf);
-  }
+@font-face {
+  font-family: SpiegelBold;
+  src: url(fonts/Spiegel-Bold.otf);
+}
 
-  @font-face {
-    font-family: Spiegel;
-    src: url(fonts/Spiegel-Regular.otf);
-  }
+@font-face {
+  font-family: Spiegel;
+  src: url(fonts/Spiegel-Regular.otf);
+}
 
-  @font-face {
-    font-family: BeaufortMedium;
-    src: url(fonts/BeaufortforLOL-Medium.ttf);
-  }
+@font-face {
+  font-family: BeaufortMedium;
+  src: url(fonts/BeaufortforLOL-Medium.ttf);
+}
+
+@property --var1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #785a28;
+}
 
 /* General styling */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-family: Spiegel;
   background-color: #01070e;
   color: #939b82; /* Light text color */
-
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: baseline;
-    align-items: center;
-    height: 100svh;
-    background-image: url(images/art/bg.png);
-    background-size: cover;
-    animation: fadeInAnimation ease 1s;
-    animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  height: 100svh;
+  background-image: url(images/art/bg.png);
+  background-size: cover;
+  animation: fadeInAnimation ease 1s;
+  animation-fill-mode: forwards;
 }
 
 /* Tags redefinition */
-a{
+a {
   color: #c1b38a;
   transition: 0.15s;
 }
@@ -54,7 +59,8 @@ a:hover {
   color: #efe5d1;
 }
 
-label{ /* Light text color for input and button */
+label {
+  /* Light text color for input and button */
   border: none;
   padding: 8px;
   margin: 5px;
@@ -76,15 +82,15 @@ button {
   background-image: linear-gradient(#1b2931 0%, #133748 100%);
 }
 
-  /* Dividers */
-  .divider{
-    border: 0.5px solid #434741a8;
-    width: 100%;
-  }
+/* Dividers */
+.divider {
+  border: 0.5px solid #434741a8;
+  width: 100%;
+}
 
 /* Sections */
 
-header{
+header {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -113,40 +119,44 @@ header{
 
 /* Modes navigation menu */
 
-.navmenu{
+.navmenu {
   margin-top: 10px;
   margin-left: 100px;
   margin-right: 100px;
   position: relative;
 }
 
-.navmenu > *{
+.navmenu > * {
   margin-right: 30px;
 }
 
-.mode-container{
-    position: relative;
-    display: inline;
+.mode-container {
+  position: relative;
+  display: inline;
 }
 
 .mode {
   font-family: SpiegelBold;
   color: #a7be91;
-  transition: 0.3s;
+  transition: 0.3s, color 0.5s;
   cursor: pointer;
 }
 
-.mode:hover{
+.mode:hover {
   color: #f0e6d2;
+}
+
+.mode:active {
+  color: #a7be91;
 }
 
 /* Highlight the mode when hovered */
 
 .highlighter {
-  background-image: url('images/dividerline.png');
+  background-image: url("images/dividerline.png");
   background-size: contain; /* This property makes the image cover the entire container */
-  background-position: center;  /*Center the image within the container */
-  background-repeat: no-repeat;  /*Prevent the image from repeating */
+  background-position: center; /*Center the image within the container */
+  background-repeat: no-repeat; /*Prevent the image from repeating */
   position: absolute;
   top: 100%;
   left: 50%;
@@ -168,7 +178,7 @@ header{
   align-items: center;
 }
 
-.butver > *{
+.butver > * {
   margin-left: 3px;
   margin-right: 3px;
 }
@@ -193,7 +203,7 @@ header{
   color: #ffffc8;
 }
 
-.version{
+.version {
   color: #3c3c41;
   background-color: #010b14;
   padding: 5px;
@@ -207,101 +217,174 @@ header{
   transition: 0.15s;
 }
 
-.lolbutton:hover .icon { 
+.lolbutton:hover .icon {
   opacity: 1;
-} 
+}
 
 /* Shuffler window */
+
+#quickcontainer {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 50%;
+  transition: 0.3s;
+}
 
 .input-players {
   display: flex;
   flex-direction: column;
-  width: 30%;
-}
-#container {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: 50%;
+  width: 60%;
+  align-items: center;
 }
 
-.teamscontainer{
+textarea {
+  text-align: center;
+  outline: none;
+  position: static;
+  background: linear-gradient(#060f19, #161e25);
+  background-size: 1px 350px;
+  width: 100%; /* Adjust the width as needed */
+  height: 250px; /* Adjust the height as needed */
+  color: #e5dbc9; /* Light text color for input and button */
+  padding: 8px;
+  margin: 5px;
+  resize: none; /* Disable textarea resizing */
+  transition: 0.3s; /* Add a transition for smooth color change */
+  border-image: linear-gradient(#9f9a8b, #3d3d42) 1;
+  transition: --var1 0.3s, all 0.3s;
+}
+
+textarea:hover {
+  border-image: linear-gradient(#9f9a8b, #9f9a8b) 1;
+  background-position: 10px;
+  --var1: #cdbe91;
+}
+
+textarea:focus {
+  border-image: linear-gradient(#c7a96d, #7a5c29) 1;
+  background-position: 100px;
+}
+
+textarea::-webkit-scrollbar {
+  background: none;
+  width: 15px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  border: 5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 10px;
+  transition: 5s;
+  background-color: var(--var1);
+}
+
+.teamscontainer {
   display: none;
   opacity: 0;
   flex-direction: column;
   width: 100%;
-  transition:
-  opacity 0.15s,
-  display 0.15s;
+  transition: opacity 0.15s, display 0.15s;
+  align-items: center;
 }
 
 .teamplayers {
-    white-space: pre-line;
-    color: #7f9b8c;
-    opacity: 0;
-    transition:
-    opacity 0.15s,
-    display 0.15s;
+  white-space: pre-line;
+  color: #7f9b8c;
+  opacity: 0;
+  transition: opacity 0.15s, display 0.15s;
 }
 .teamname {
-    margin-bottom: 10px;
-    transition:
-    opacity 0.15s,
-    display 0.15s;
-  }
-#redside{
-    color: #ff2345;
-    text-align: right;
+  margin-bottom: 10px;
+  transition: opacity 0.15s, display 0.15s;
+}
+#redside {
+  color: #ff2345;
+  text-align: left;
 }
 
-#blueside{
-    color: #09bdd6;
-    text-align: left;
+#blueside {
+  color: #09bdd6;
+  text-align: right;
 }
-
 
 .teams {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
 }
-.buttonswrapper{
+.buttonswrapper {
+  display: grid;
+  grid-template-columns: 0.5fr;
+  grid-template-rows: 1fr 1fr;
   margin-top: 20px;
-}
-#tooltip {
-    text-align: left;
-    visibility: hidden;
-    transition: visibility 0.3s,
-    opacity 0.3s;
-    opacity: 0;
-    padding: 10px;
-    background-color: #010a13;
-    color: #928f82;
-    /* Position the tooltip */
-    position: absolute;
-
-    z-index: 1;
-    border: 1px solid #775a28;
-  }
-#team1, #team2 {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    font-weight: bold;
-    width: 40%;
-}
-#team1players{
-    text-align: left;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
 }
 
-#team2players{
-    text-align: right;
+.riot-tags {
+  color: #a7be91;
 }
 
+.blueplayer {
+  color: #09bdd6;
+}
+
+.redplayer {
+  color: #ff2345;
+}
+
+#team1,
+#team2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-weight: bold;
+  width: 45%;
+}
+
+#team1players {
+  text-align: right;
+}
+
+#team2players {
+  text-align: left;
+}
+
+.player {
+  padding: 10px 0px;
+}
+
+.showing {
+  opacity: 1;
+}
+.showingdisplay {
+  opacity: 1;
+  display: inline;
+}
+
+.hiding {
+  opacity: 0;
+  display: none;
+}
+
+.showingdisplayflex {
+  opacity: 1;
+  display: flex;
+}
+
+footer {
+  color: #928e81;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  margin: 20px;
+}
 
 .cr {
   padding-top: 20px;
@@ -309,70 +392,50 @@ header{
   padding-right: 10px;
 }
 
-textarea {
-    outline: none;
-    position: static;
-    background-color: #060f19;
-    width: 100%; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
-    color: #e5dbc9; /* Light text color for input and button */
-    padding: 8px;
-    margin: 5px;
-    resize: none; /* Disable textarea resizing */
-    transition: 0.2s; /* Add a transition for smooth color change */
-    border-image: linear-gradient(#9f9a8b, #3d3d42) 1;    
+#tooltip {
+  text-align: left;
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s;
+  opacity: 0;
+  padding: 10px;
+  background-color: #010a13;
+  color: #928f82;
+  /* Position the tooltip */
+  position: absolute;
+
+  z-index: 1;
+  border: 1px solid #775a28;
 }
 
-textarea:focus {
-    border-image: linear-gradient(#c7a96d, #7a5c29) 1;
-    background: linear-gradient(#060f19, #161e25);  
+@starting-style {
+  .showing {
+    opacity: 0;
+  }
 }
 
-.showing {
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
-  .showingdisplay {
+}
+
+@keyframes fade-out {
+  0% {
     opacity: 1;
-    display: inline;
   }
-  
-  footer{
-    color: #928e81;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    margin: 20px;
+  100% {
+    opacity: 0;
   }
+}
 
-  @starting-style {
-    .showing {
-      opacity: 0;
-    }
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
   }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
 }

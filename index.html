@@ -1,62 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>League of Legends Customs Shuffler</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="headerup">
-            <div class="headername">
-                <h1 id="name">LOLCustoms</h1>
-                <h2 id="desc">An advanced League of Legends Customs Shuffler</h2></div>
-                    <div class="butver">
-                        <a class="lolbutton" href="https://discord.gg/BK7FBQ2q9g"><img id="discord" class="icon" src="images/icons/discordhover.webp"></a>
-                        <a class="lolbutton" href="https://github.com/hydall/lolcustoms"><img id="github" class="icon" src="images/icons/github.png"></a>
-                        <span class="version">V0.01</span>
-                    </div>
-            </div>
-        <hr class="divider">
-        <div class="navmenu">
-                <div class="mode-container"><span class="mode">QUICK CUSTOM</span><div class="highlighter"></div></div>
-                <div class="mode-container"><span class="mode">RANKED CUSTOM</span><div class="highlighter"></div></div>
-                <div class="mode-container"><span class="mode">ULTIMATE BRAVERY</span><div class="highlighter"></div></div>
+      <div class="headerup">
+        <div class="headername">
+          <h1 id="name">LOLCustoms</h1>
+          <h2 id="desc">An advanced League of Legends Customs Shuffler</h2>
         </div>
+        <div class="butver">
+          <a class="lolbutton" href="https://discord.gg/BK7FBQ2q9g"
+            ><img
+              id="discord"
+              class="icon"
+              src="images/icons/discordhover.webp"
+          /></a>
+          <a class="lolbutton" href="https://github.com/hydall/lolcustoms"
+            ><img id="github" class="icon" src="images/icons/github.png"
+          /></a>
+          <span class="version">V0.01</span>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="navmenu">
+        <div class="mode-container">
+          <a
+            class="mode"
+            onclick="changeMode(document.getElementById('quickcontainer'), this)"
+            >QUICK CUSTOM</a
+          >
+          <div class="highlighter"></div>
+        </div>
+        <div class="mode-container">
+          <a
+            class="mode"
+            onclick="changeMode(document.getElementById('rankedcontainer'), this)"
+            >RANKED CUSTOM</a
+          >
+          <div class="highlighter"></div>
+        </div>
+        <div class="mode-container">
+          <a
+            class="mode"
+            onclick="changeMode(document.getElementById('ultimatecontainer'), this)"
+            >ULTIMATE BRAVERY</a
+          >
+          <div class="highlighter"></div>
+        </div>
+        <div class="mode-container">
+          <a
+            class="mode"
+            onclick="changeMode(document.getElementById('tournamentcontainer'), this)"
+            >TOURNAMENT</a
+          >
+          <div class="highlighter"></div>
+        </div>
+      </div>
     </header>
 
-    <main id="container">
-        <div class="input-players" id="inputt">
+    <main id="quickcontainer">
+      <div class="input-players" id="inputt">
         <label for="players">Enter players (separated by Enter): </label>
-        <textarea id="players" placeholder="Player1&#10;Player2&#10;Player3&#10;and so on..."></textarea>
+        <textarea
+          id="players"
+          placeholder="Player1&#10;Player2&#10;Player3&#10;and so on..."
+        ></textarea>
         <button id="button" onclick="shuffleTeams(event)">Shuffle Teams</button>
-    </div>
-        <div class="teamscontainer" id="teamscontainer">
-            <div class="teams">
-                <div id="team1">
-                    <div class="teamname" id="blueside">BLUE SIDE</div>
-                    <div class="teamplayers" id="team1players"></div>
-                </div>
-                <div id="team2">
-                    <div class="teamname" id="redside">RED SIDE</div>
-                    <div class="teamplayers" id="team2players"></div>
-                </div>
-            </div>
-            <div class="buttonswrapper">
-                <button id="button" onclick="shuffleTeams(event)">Shuffle Teams</button>
-                <button id="button" onclick="showInput()">Change Players</button>
-            </div>
-                
+      </div>
+      <div class="teamscontainer" id="teamscontainer">
+        <div class="teams">
+          <div id="team1">
+            <div class="teamname" id="blueside">BLUE SIDE</div>
+            <div class="teamplayers" id="team1players"></div>
+          </div>
+          <div id="team2">
+            <div class="teamname" id="redside">RED SIDE</div>
+            <div class="teamplayers" id="team2players"></div>
+          </div>
         </div>
-        </main>
+        <div class="buttonswrapper">
+          <button id="button" onclick="shuffleTeams(event)">
+            Shuffle Teams
+          </button>
+          <button id="button" onclick="showInput()">Change Players</button>
+        </div>
+      </div>
+    </main>
+    <main id="rankedcontainer" class="hidden"></main>
+    <main id="ultimatecontainer" class="hidden"></main>
+    <main id="tournamentcontainer" class="hidden"></main>
     <footer>
-        <hr class="divider">
-        <div class="cr">LOLCustoms isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends<br>© Riot Games, Inc.</div>
-        <br>
-        made by <a href="https://github.com/hydall">hydall</a>
+      <hr class="divider" />
+      <div class="cr">
+        LOLCustoms isn't endorsed by Riot Games and doesn't reflect the views or
+        opinions of Riot Games or anyone officially involved in producing or
+        managing League of Legends. League of Legends and Riot Games are
+        trademarks or registered trademarks of Riot Games, Inc. League of
+        Legends<br />© Riot Games, Inc.
+      </div>
+      <br />
+      made by <a href="https://github.com/hydall">hydall</a>
     </footer>
     <span id="tooltip"></span>
-</body>
+  </body>
 </html>
