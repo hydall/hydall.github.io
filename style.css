@@ -312,15 +312,21 @@ header{
 textarea {
     outline: none;
     position: static;
-    background-color: #060f19;
+    background: linear-gradient(#060f19, #161e25);
+    background-size: 1px 200px;
     width: 100%; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
     color: #e5dbc9; /* Light text color for input and button */
     padding: 8px;
     margin: 5px;
     resize: none; /* Disable textarea resizing */
-    transition: 0.2s; /* Add a transition for smooth color change */
+    transition: 0.3s; /* Add a transition for smooth color change */
     border-image: linear-gradient(#9f9a8b, #3d3d42) 1;    
+}
+
+textarea:hover {
+    border-image: linear-gradient(#9f9a8b, #9f9a8b) 1;
+    background-position:bottom;
 }
 
 textarea:focus {
