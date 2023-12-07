@@ -36,6 +36,7 @@ html {
   font-family: Spiegel;
   background-color: #01070e;
   color: #939b82; /* Light text color */
+  font-size: 0.8rem;
 }
 
 body {
@@ -48,6 +49,7 @@ body {
   background-size: cover;
   animation: fadeInAnimation ease 1s;
   animation-fill-mode: forwards;
+  font-size: 1rem;
 }
 
 /* Tags redefinition */
@@ -62,7 +64,7 @@ a:hover {
 label {
   /* Light text color for input and button */
   border: none;
-  padding: 8px;
+  padding: 0.5rem;
   margin: 5px;
 }
 
@@ -70,7 +72,7 @@ button {
   background-color: #1b2931; /* Dark input background color */
   color: #a3c7c7; /* Light text color for input and button */
   border: 2px solid #0596aa;
-  padding: 8px;
+  padding: 0.5rem;
   margin: 5px;
   transition: 0.2s;
   position: relative;
@@ -102,7 +104,7 @@ header {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  padding: 20px 100px;
+  padding: 20px clamp(20px, 10vw, 60px);
 }
 
 /* Site name in the header */
@@ -113,7 +115,7 @@ header {
 }
 #desc {
   color: #f0e6d2;
-  font-size: 21px;
+  font-size: 1.3125rem;
   font-family: BeaufortMedium;
 }
 
@@ -121,13 +123,17 @@ header {
 
 .navmenu {
   margin-top: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: clamp(20px, 10vw, 60px);
+  margin-right: clamp(20px, 10vw, 60px);
   position: relative;
 }
 
 .navmenu > * {
-  margin-right: 30px;
+  margin-right: 1%;
+}
+
+.navmenu > :last-child {
+  margin-right: 0px;
 }
 
 .mode-container {
@@ -193,8 +199,8 @@ header {
   border-image: linear-gradient(#c3a464, #6b5028) 1;
   cursor: pointer;
   transition: 0.3s;
-  width: 35px;
-  padding: 3px;
+  width: 2.1875rem;
+  padding: 0.1875rem;
 }
 
 .lolbutton:hover {
@@ -205,14 +211,13 @@ header {
 
 .version {
   color: #3c3c41;
-  background-color: #010b14;
   padding: 5px;
   z-index: 1;
 }
 
 .icon {
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
   opacity: 0.7;
   transition: 0.15s;
 }
@@ -227,6 +232,7 @@ header {
   text-align: center;
   align-items: center;
   justify-content: center;
+  align-content: center;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -238,6 +244,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 60%;
+  height: clamp(60vh, 65vh, 100vh);
   align-items: center;
 }
 
@@ -246,9 +253,9 @@ textarea {
   outline: none;
   position: static;
   background: linear-gradient(#060f19, #161e25);
-  background-size: 1px 350px;
+  background-size: 1px 150%;
   width: 100%; /* Adjust the width as needed */
-  height: 250px; /* Adjust the height as needed */
+  height: 100%;
   color: #e5dbc9; /* Light text color for input and button */
   padding: 8px;
   margin: 5px;
@@ -380,16 +387,11 @@ textarea::-webkit-scrollbar-thumb {
 
 footer {
   color: #928e81;
+  font-size: 0.9rem;
   width: 100%;
   text-align: center;
   bottom: 0;
-  margin: 20px;
-}
-
-.cr {
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 15px clamp(20px, 10vw, 60px);
 }
 
 #tooltip {
