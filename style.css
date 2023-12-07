@@ -177,6 +177,14 @@ header {
   width: 100%;
 }
 
+.modeactive {
+  color: #f0e6d2;
+}
+
+.highlighteractive {
+  width: 100%;
+}
+
 /* Buttons and version */
 
 .butver {

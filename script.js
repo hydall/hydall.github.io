@@ -95,30 +95,37 @@ function shuffleTeams(event) {
   isExecuting = false;
 }
 
-function changeMode(mode) {
+function changeMode(mode, clicked, highlighter) {
+  var activeHighlighter = Array.from(
+    document.querySelectorAll(".highlighter")
+  ).find((element) => element.classList.contains("highlighteractive"));
+  var activeMode = Array.from(document.querySelectorAll(".mode")).find(
+    (element) => element.classList.contains("modeactive")
+  );
+  activeHighlighter.classList.toggle("highlighteractive");
+  highlighter.classList.toggle("highlighteractive");
+  activeMode.classList.toggle("modeactive");
+  clicked.classList.toggle("modeactive");
   if (currentMode == mode) return;
   currentMode.classList.add("hiding");
   setTimeout(function () {
     switch (mode) {
       case quick:
         currentMode = quick;
-        currentMode.classList.remove("hiding");
         break;
       case ranked:
         currentMode = ranked;
-        currentMode.classList.remove("hiding");
         break;
       case ultimate:
         currentMode = ultimate;
-        currentMode.classList.remove("hiding");
         break;
       case tournament:
         currentMode = tournament;
-        currentMode.classList.remove("hiding");
         break;
       default:
         break;
     }
+    currentMode.classList.remove("hiding");
   }, 150);
 }
 
@@ -144,19 +151,35 @@ function HandleKeyDown(event) {
       break;
     case event.altKey && event.key === "1":
       event.preventDefault();
-      changeMode(quick);
+      changeMode(
+        document.getElementById("quickcontainer"),
+        document.getElementById("mode1"),
+        document.getElementById("highlighter1")
+      );
       break;
     case event.altKey && event.key === "2":
       event.preventDefault();
-      changeMode(ranked);
+      changeMode(
+        document.getElementById("rankedcontainer"),
+        document.getElementById("mode2"),
+        document.getElementById("highlighter2")
+      );
       break;
     case event.altKey && event.key === "3":
       event.preventDefault();
-      changeMode(ultimate);
+      changeMode(
+        document.getElementById("ultimatecontainer"),
+        document.getElementById("mode3"),
+        document.getElementById("highlighter3")
+      );
       break;
     case event.altKey && event.key === "4":
       event.preventDefault();
-      changeMode(tournament);
+      changeMode(
+        document.getElementById("tournamentcontainer"),
+        document.getElementById("mode4"),
+        document.getElementById("highlighter4")
+      );
       break;
   }
 }

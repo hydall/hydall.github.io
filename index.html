@@ -31,35 +31,39 @@
       <div class="navmenu">
         <div class="mode-container">
           <a
-            class="mode"
-            onclick="changeMode(document.getElementById('quickcontainer'))"
+            class="mode modeactive"
+            id="mode1"
+            onclick="changeMode(document.getElementById('quickcontainer'), document.getElementById('mode1'), document.getElementById('highlighter1'))"
             >QUICK CUSTOM</a
           >
-          <div class="highlighter"></div>
+          <div class="highlighter highlighteractive" id="highlighter1"></div>
         </div>
         <div class="mode-container">
           <a
             class="mode"
-            onclick="changeMode(document.getElementById('rankedcontainer'))"
+            id="mode2"
+            onclick="changeMode(document.getElementById('rankedcontainer'), document.getElementById('mode2'), document.getElementById('highlighter2'))"
             >RANKED CUSTOM</a
           >
-          <div class="highlighter"></div>
+          <div class="highlighter" id="highlighter2"></div>
         </div>
         <div class="mode-container">
           <a
             class="mode"
-            onclick="changeMode(document.getElementById('ultimatecontainer'))"
+            id="mode3"
+            onclick="changeMode(document.getElementById('ultimatecontainer'), document.getElementById('mode3'), document.getElementById('highlighter3'))"
             >ULTIMATE BRAVERY</a
           >
-          <div class="highlighter"></div>
+          <div class="highlighter" id="highlighter3"></div>
         </div>
         <div class="mode-container">
           <a
             class="mode"
-            onclick="changeMode(document.getElementById('tournamentcontainer'))"
+            id="mode4"
+            onclick="changeMode(document.getElementById('tournamentcontainer'), document.getElementById('mode4'), document.getElementById('highlighter4'))"
             >TOURNAMENT</a
           >
-          <div class="highlighter"></div>
+          <div class="highlighter" id="highlighter4"></div>
         </div>
       </div>
     </header>
