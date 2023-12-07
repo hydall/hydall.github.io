@@ -65,15 +65,21 @@
     </header>
 
     <main id="quickcontainer">
-      <div class="input-players" id="inputt">
-        <label for="players">Enter players (separated by Enter): </label>
+      <div id="inputt" class="input-players">
+        <label for="players"
+          >Enter players<br />(send with Enter, new player with Shift+Enter):
+        </label>
         <textarea
           id="players"
+          name="players"
           placeholder="Player1&#10;Player2&#10;Player3&#10;and so on..."
         ></textarea>
         <button id="button" onclick="shuffleTeams(event)">Shuffle Teams</button>
       </div>
       <div class="teamscontainer" id="teamscontainer">
+        <label for="teams"
+          >Enter to shuffle again, Shift+Enter to change list of players
+        </label>
         <div class="teams">
           <div id="team1">
             <div class="teamname" id="blueside">BLUE SIDE</div>
@@ -95,8 +101,8 @@
     <main id="rankedcontainer" class="hidden"></main>
     <main id="ultimatecontainer" class="hidden"></main>
     <main id="tournamentcontainer" class="hidden"></main>
+    <hr class="divider" />
     <footer>
-      <hr class="divider" />
       <div class="cr">
         LOLCustoms isn't endorsed by Riot Games and doesn't reflect the views or
         opinions of Riot Games or anyone officially involved in producing or

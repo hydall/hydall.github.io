@@ -7,19 +7,26 @@ var quick;
 var ranked;
 var ultimate;
 var tournament;
+var teamscontainer;
+var isExecuting;
+var playersInput;
 document.addEventListener('DOMContentLoaded', function () {
     quick = document.querySelector('#quickcontainer');
     ranked = document.getElementById('rankedcontainer');
     ultimate = document.getElementById('ultimatecontainer');
     tournament = document.getElementById('tournamentcontainer');
+    teamscontainer = document.getElementById('teamscontainer');
+    playersInput = document.getElementById('players');
+    playersInput.focus();
     currentMode = quick;
+    document.addEventListener('keydown', HandleKeyDown.bind(null));
 });
 
 function shuffleTeams(event){
+    if(isExecuting) return;
+    isExecuting = true;
     mouseX = event.clientX;
     mouseY = event.clientY;
-    var teamscontainer = document.getElementById('teamscontainer');
-    var playersInput = document.getElementById('players');
     var team1Div = document.getElementById('team1players');
     var team2Div = document.getElementById('team2players');
     var inputt = document.getElementById('inputt');
@@ -35,7 +42,7 @@ function shuffleTeams(event){
  
 
     // Show tooltip depending on amount of inputed players
-    if(players.length < 2) {
+    if(players.length < 3) {
         showTooltip("•    Too few players - at least three players required"); return;
     }
     else if(players.length > 10) {
@@ -79,7 +86,9 @@ function shuffleTeams(event){
     } 
 }
 firstCall = false;
+isExecuting = false;
 }
+
 function changeMode(mode){
     console.log(currentMode);
     if(currentMode==mode) return;
@@ -113,6 +122,23 @@ function changeMode(mode){
     
 }
 
+function HandleKeyDown(event){
+    switch (currentMode) {
+        case quick:
+            action = shuffleTeams;
+            break;
+    
+        default:
+            break;
+    }
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Prevent the default behavior
+        action(event);
+} else if (event.key === "Enter" && event.shiftKey && inputt.style.display=="none"){
+        showInput();
+}
+}
+
 function showTooltip(message){
     clearTimeout(tooltipTimer);
         tooltip.style.left = mouseX + 'px';
@@ -138,8 +164,7 @@ function shuffleArray(array) {
 
 function showInput() {
     teamscontainer.classList.remove('showingdisplayflex');
-    setTimeout(function(){inputt.style.display = "inline";},150);
-
+    setTimeout(function(){inputt.style.display = "flex";playersInput.focus();},150);
 }
 
 function colorizeHash(str, team) {
